@@ -17,5 +17,5 @@ model {
 }
 
 generated quantities {
-    array[N] real H_pred = normal_rng(alpha + beta_1*G + beta_2*HDI, sigma);
+    array[N] real V_pred = normal_rng(alpha + beta_1*G + beta_2*HDI, sigma);
 }
