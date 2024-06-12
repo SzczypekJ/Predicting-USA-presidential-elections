@@ -1,6 +1,6 @@
 data {
     int<lower=1> N;     // # samples
-    vector[N] V;        // vector of votes 4 democrats
+    vector[N] V;        // vector of votes for democrats
     vector[N] G;        // vector of gun ownership
     vector[N] HDI;      // vector of HDI values
 }
