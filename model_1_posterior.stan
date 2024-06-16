@@ -13,10 +13,10 @@ parameters {
 }
 
 model {
-  alpha ~ normal(50, 10); // Prior for intercept
-  beta_HDI ~ normal(0, 1); // Prior for HDI coefficient
-  beta_G ~ normal(0, 1); // Prior for Gun Ownership coefficient
-  sigma ~ cauchy(0, 2); // Prior for standard deviation
+  alpha ~ normal(45, 10); // Prior for intercept
+  beta_HDI ~ normal(0, 0.5); // Prior for HDI coefficient
+  beta_G ~ normal(0, 0.5); // Prior for Gun Ownership coefficient
+  sigma ~ normal(5, 1); // Prior for standard deviation
 
   // Likelihood
   V ~ normal(alpha + beta_HDI * HDI + beta_G * G, sigma);
