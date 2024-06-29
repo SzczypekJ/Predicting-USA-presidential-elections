@@ -21,17 +21,17 @@ parameters {
 }
 
 model {
-  alpha ~ normal(45, 10); // Prior for intercept
-  beta_HDI ~ normal(0, 0.3); // Prior for HDI coefficient
-  beta_G ~ normal(0, 0.3); // Prior for Gun Ownership coefficient
-  beta_U ~ normal(0, 0.3); // Prior for Unemployment coefficient
-  beta_HDI2 ~ normal(0, 0.1); // Prior for HDI^2 coefficient
-  beta_G2 ~ normal(0, 0.1); // Prior for Gun Ownership^2 coefficient
-  beta_U2 ~ normal(0, 0.1); // Prior for Unemployment^2 coefficient
-  beta_HDI3 ~ normal(0, 0.05); // Prior for HDI^3 coefficient
-  beta_G3 ~ normal(0, 0.05); // Prior for Gun Ownership^3 coefficient
-  beta_U3 ~ normal(0, 0.05); // Prior for Unemployment^3 coefficient
-  sigma ~ normal(5, 0.5); // Prior for standard deviation
+  alpha ~ normal(45, 8); // Prior for intercept, slightly narrower
+  beta_HDI ~ normal(0, 0.2); // Narrower prior for HDI coefficient
+  beta_G ~ normal(0, 0.2); // Narrower prior for Gun Ownership coefficient
+  beta_U ~ normal(0, 0.2); // Narrower prior for Unemployment coefficient
+  beta_HDI2 ~ normal(0, 0.08); // Narrower prior for HDI^2 coefficient
+  beta_G2 ~ normal(0, 0.08); // Narrower prior for Gun Ownership^2 coefficient
+  beta_U2 ~ normal(0, 0.08); // Narrower prior for Unemployment^2 coefficient
+  beta_HDI3 ~ normal(0, 0.03); // Narrower prior for HDI^3 coefficient
+  beta_G3 ~ normal(0, 0.03); // Narrower prior for Gun Ownership^3 coefficient
+  beta_U3 ~ normal(0, 0.03); // Narrower prior for Unemployment^3 coefficient
+  sigma ~ normal(5, 0.4); // Narrower prior for standard deviation
 
   // Likelihood
   V ~ normal(alpha + beta_HDI * HDI + beta_G * G + beta_U * U 
