@@ -15,11 +15,11 @@ parameters {
 }
 
 model {
-  alpha ~ normal(45, 20); // Prior for intercept
-  beta_HDI ~ normal(0, 5); // Prior for HDI coefficient
-  beta_G ~ normal(0, 5); // Prior for Gun Ownership coefficient
-  beta_U ~ normal(0, 5); // Prior for Unemployment coefficient
-  sigma ~ normal(5, 2); // Prior for standard deviation
+  alpha ~ normal(0.470, 0.1088); // Prior for intercept
+  beta_HDI ~ normal(0.901, 0.025); // Prior for HDI coefficient
+  beta_G ~ normal(0.416, 0.148); // Prior for Gun Ownership coefficient
+  beta_U ~ normal(0.057, 0.018); // Prior for Unemployment coefficient
+  sigma ~ normal(0, 0.5); // Prior for standard deviation
 
   // Likelihood
   V ~ normal(alpha + beta_HDI * HDI + beta_G * G + beta_U * U, sigma);
