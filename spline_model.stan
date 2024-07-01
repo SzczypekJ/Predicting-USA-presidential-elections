@@ -20,11 +20,11 @@ parameters {
 
 model {
   // Priorytety
-  alpha ~ normal(0.470, 0.1088); // Prior for intercept
-  beta_HDI ~ normal(0.901, 0.025); // Prior for HDI coefficient
-  beta_G ~ normal(0.416, 0.148); // Prior for Gun Ownership coefficient
-  beta_U ~ normal(0.057, 0.018); // Prior for Unemployment coefficient
-  sigma ~ normal(0, 0.5); // Prior for standard deviation
+  alpha ~ normal(0.470, 0.1088); // Priorytet dla wyrazu wolnego
+  beta_HDI ~ normal(0, 1); // Priorytet dla współczynników splajnu B dla HDI
+  beta_G ~ normal(0, 1); // Priorytet dla współczynników splajnu B dla posiadania broni
+  beta_U ~ normal(0, 1); // Priorytet dla współczynników splajnu B dla bezrobocia
+  sigma ~ normal(0, 1); // Priorytet dla odchylenia standardowego
 
   // Wiarygodność
   V ~ normal(alpha + B_HDI * beta_HDI + B_G * beta_G + B_U * beta_U, sigma);

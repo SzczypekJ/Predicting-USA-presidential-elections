@@ -22,17 +22,17 @@ parameters {
 
 model {
   // Priorytety
-  alpha ~ normal(0.470, 0.1088); // Priorytet dla wyrazu wolnego
-  beta_HDI ~ normal(0.901, 0.025); // Priorytet dla współczynnika HDI
-  beta_HDI2 ~ normal(0, 0.01); // Mniejszy priorytet dla współczynnika HDI^2
-  beta_HDI3 ~ normal(0, 0.001); // Jeszcze mniejszy priorytet dla współczynnika HDI^3
-  beta_G ~ normal(0.416, 0.148); // Priorytet dla współczynnika posiadania broni
-  beta_G2 ~ normal(0, 0.01); // Mniejszy priorytet dla współczynnika posiadania broni^2
-  beta_G3 ~ normal(0, 0.001); // Jeszcze mniejszy priorytet dla współczynnika posiadania broni^3
-  beta_U ~ normal(0.057, 0.018); // Priorytet dla współczynnika bezrobocia
-  beta_U2 ~ normal(0, 0.01); // Mniejszy priorytet dla współczynnika bezrobocia^2
-  beta_U3 ~ normal(0, 0.001); // Jeszcze mniejszy priorytet dla współczynnika bezrobocia^3
-  sigma ~ normal(0, 0.5); // Priorytet dla odchylenia standardowego (można rozważyć półnormalny lub eksponencjalny)
+  alpha ~ normal(0.470, 0.1088); 
+  beta_HDI ~ normal(0.901, 0.025);
+  beta_HDI2 ~ normal(0.0, 0.1);
+  beta_HDI3 ~ normal(0.0, 0.1);
+  beta_G ~ normal(0.416, 0.148);
+  beta_G2 ~ normal(0.0, 0.1);
+  beta_G3 ~ normal(0.0, 0.1);
+  beta_U ~ normal(0.057, 0.018);
+  beta_U2 ~ normal(0.0, 0.1);
+  beta_U3 ~ normal(0.0, 0.1);
+  sigma ~ normal(0.0684, 0.01);
 
   // Wiarygodność
   V ~ normal(alpha + beta_HDI * HDI + beta_HDI2 * square(HDI) + beta_HDI3 * pow(HDI, 3) +
