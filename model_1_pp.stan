@@ -14,11 +14,10 @@ parameters {
 }
 
 model {
-  // Priors
   alpha ~ normal(47, 10); // Prior for intercept centered at mean Democratic %
   beta_HDI ~ normal(0, 1); // Prior for HDI coefficient
-  beta_G ~ normal(0, 0.01); // Prior for Gun Ownership coefficient
-  beta_U ~ normal(0, 0.01); // Prior for Unemployment coefficient
+  beta_G ~ normal(0, 0.1); // Prior for Gun Ownership coefficient
+  beta_U ~ normal(0, 0.1); // Prior for Unemployment coefficient
   sigma ~ normal(1, 0.5); // Prior for standard deviation
 }
 
