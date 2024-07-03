@@ -1,33 +1,36 @@
 data {
-  int<lower=0> N; // number of observations
-  vector[N] HDI; // predictor 1 (HDI)
-  vector[N] G; // predictor 2 (Gun ownership %)
-  vector[N] U; // predictor 3 (Unemployment %)
-  vector[N] y; // outcome variable
+  int<lower=0> N; // liczba obserwacji
+  vector[N] HDI; // predyktor 1
+  vector[N] G;  // predyktor 2 
+  vector[N] U; // predyktor 3 (procent bezrobocia)
+  vector[N] y; // wynik (procent głosów na demokratów)
 }
 
 parameters {
-  real alpha; // intercept
-  real beta_HDI; // coefficient for HDI
-  real beta_G; // coefficient for Gun ownership %
-  real beta_U; // coefficient for Unemployment %
-  real<lower=0> sigma; // standard deviation of the error term
+  real alpha;
+  real beta_HDI;
+  real beta_G;
+  real beta_U;
+  real<lower=0> sigma;
 }
 
 model {
   // Priors
-  alpha ~ normal(47, 10); // Prior for intercept centered at mean Democratic %
-  beta_HDI ~ normal(0, 1); // Prior for HDI coefficient
-  beta_G ~ normal(0, 0.1); // Prior for Gun Ownership coefficient
-  beta_U ~ normal(0, 0.1); // Prior for Unemployment coefficient
-  sigma ~ normal(1, 0.5); // Prior for standard deviation
+  alpha ~ normal(47, 10);
+  beta_HDI ~ normal(0, 1);
+  beta_G ~ normal(0, 0.1);
+  beta_U ~ normal(0, 0.1);
+  sigma ~ normal(1, 0.5);
 
   // Likelihood
   y ~ normal(alpha + beta_HDI * HDI + beta_G * G + beta_U * U, sigma);
 }
 
 generated quantities {
-  vector[N] y_rep; // replicated data for posterior predictive checks
-  for (n in 1:N)
+  vector[N] log_lik;
+  vector[N] y_rep;
+  for (n in 1:N) {
+    log_lik[n] = normal_lpdf(y[n] | alpha + beta_HDI * HDI[n] + beta_G * G[n] + beta_U * U[n], sigma);
     y_rep[n] = normal_rng(alpha + beta_HDI * HDI[n] + beta_G * G[n] + beta_U * U[n], sigma);
+  }
 }
