@@ -1,3 +1,4 @@
+
 # Predicting US Presidential Elections: A Data Analytics Project
 
 ## Overview
@@ -96,34 +97,34 @@ Both models utilized the same data:
 ### Linear Regression Model
 
 The linear regression model predicts election results as a linear combination of the predictors:
-\[ \mu = \alpha + \beta_G \cdot G + \beta_{HDI} \cdot HDI + \beta_U \cdot U \]
+\[ \mu = lpha + eta_G \cdot G + eta_{HDI} \cdot HDI + eta_U \cdot U \]
 
 ### Polynomial Regression Model
 
 The polynomial regression model includes squared terms of the predictors:
-\[ \mu = \alpha + \beta_{G1} \cdot G + \beta_{G2} \cdot G^2 + \beta_{HDI1} \cdot HDI + \beta_{HDI2} \cdot HDI^2 + \beta_{U1} \cdot U + \beta_{U2} \cdot U^2 \]
+\[ \mu = lpha + eta_{G1} \cdot G + eta_{G2} \cdot G^2 + eta_{HDI1} \cdot HDI + eta_{HDI2} \cdot HDI^2 + eta_{U1} \cdot U + eta_{U2} \cdot U^2 \]
 
 ## Priors
 
 ### Linear Regression Priors
 
 Priors were selected based on the correlation matrix and trial and error:
-- \(\alpha \sim N(\mu=47, \sigma=10)\)
-- \(\beta_G \sim N(\mu=0, \sigma=0.1)\)
-- \(\beta_{HDI} \sim N(\mu=0, \sigma=1)\)
-- \(\beta_U \sim N(\mu=0, \sigma=0.1)\)
+- \(lpha \sim N(\mu=47, \sigma=10)\)
+- \(eta_G \sim N(\mu=0, \sigma=0.1)\)
+- \(eta_{HDI} \sim N(\mu=0, \sigma=1)\)
+- \(eta_U \sim N(\mu=0, \sigma=0.1)\)
 - \(\sigma \sim N(\mu=1, \sigma=0.5)\)
 
 ### Polynomial Regression Priors
 
 Priors for polynomial regression were more complex and involved trial and error:
-- \(\alpha \sim N(\mu=47, \sigma=10)\)
-- \(\beta_{G1} \sim N(\mu=0, \sigma=0.01)\)
-- \(\beta_{G2} \sim N(\mu=0, \sigma=0.001)\)
-- \(\beta_{HDI1} \sim N(\mu=0, \sigma=1)\)
-- \(\beta_{HDI2} \sim N(\mu=0, \sigma=0.1)\)
-- \(\beta_{U1} \sim N(\mu=0, \sigma=0.01)\)
-- \(\beta_{U2} \sim N(\mu=0, \sigma=0.001)\)
+- \(lpha \sim N(\mu=47, \sigma=10)\)
+- \(eta_{G1} \sim N(\mu=0, \sigma=0.01)\)
+- \(eta_{G2} \sim N(\mu=0, \sigma=0.001)\)
+- \(eta_{HDI1} \sim N(\mu=0, \sigma=1)\)
+- \(eta_{HDI2} \sim N(\mu=0, \sigma=0.1)\)
+- \(eta_{U1} \sim N(\mu=0, \sigma=0.01)\)
+- \(eta_{U2} \sim N(\mu=0, \sigma=0.001)\)
 - \(\sigma \sim N(\mu=1, \sigma=0.5)\)
 
 ## Posteriors
@@ -175,7 +176,7 @@ Predicting US presidential elections was a challenging but insightful project. C
 2. Create and activate a virtual environment:
     ```sh
     python3 -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    source venv/bin/activate  # On Windows use `venv\Scriptsctivate`
     ```
 
 3. Install the required packages:
@@ -188,13 +189,14 @@ Predicting US presidential elections was a challenging but insightful project. C
 Open the Jupyter Notebook:
 ```sh
 jupyter notebook first_model.ipynb
+```
 
 ## Project Structure
 
-- **first_model.ipynb:** Jupyter Notebook containing the code for data preprocessing, model creation, and analysis.
-- **getting_unemployement_data.ipynb:** Jupyter Notebook containing the code for data preprocessing.
-- **data/:** Directory containing the data files used in the project.
-- **.stan files:** Stan files containing the linear or polynomial model.
+- **first_model.ipynb**: Jupyter Notebook containing the code for data preprocessing, model creation, and analysis.
+- **getting_unemployement_data.ipynb**: Jupyter Notebook containing the code for data preprocessing.
+- **data/**: Directory containing the data files used in the project.
+- **.stan files**: Stan files containing the linear or polynomial model.
 
 ## Results
 
