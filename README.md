@@ -97,36 +97,35 @@ Both models utilized the same data:
 ### Linear Regression Model
 
 The linear regression model predicts election results as a linear combination of the predictors:
-\[ \mu = lpha + eta_G \cdot G + eta_{HDI} \cdot HDI + eta_U \cdot U \]
+\[ mu = alpha + beta_G * G + beta_HDI * HDI + beta_U * U \]
 
 ### Polynomial Regression Model
 
 The polynomial regression model includes squared terms of the predictors:
-\[ \mu = lpha + eta_{G1} \cdot G + eta_{G2} \cdot G^2 + eta_{HDI1} \cdot HDI + eta_{HDI2} \cdot HDI^2 + eta_{U1} \cdot U + eta_{U2} \cdot U^2 \]
+\[ mu = alpha + beta_{G1} * G + beta_{G2} * G^2 + beta_{HDI1} * HDI + beta_{HDI2} * HDI^2 + beta_{U1} * U + beta_{U2} * U^2 \]
 
 ## Priors
 
 ### Linear Regression Priors
 
 Priors were selected based on the correlation matrix and trial and error:
-- \(lpha \sim N(\mu=47, \sigma=10)\)
-- \(eta_G \sim N(\mu=0, \sigma=0.1)\)
-- \(eta_{HDI} \sim N(\mu=0, \sigma=1)\)
-- \(eta_U \sim N(\mu=0, \sigma=0.1)\)
-- \(\sigma \sim N(\mu=1, \sigma=0.5)\)
+- alpha ~ N(mu=47, sigma=10)
+- beta_G ~ N(mu=0, sigma=0.1)
+- beta_HDI ~ N(mu=0, sigma=1)
+- beta_U ~ N(mu=0, sigma=0.1)
+- sigma ~ N(mu=1, sigma=0.5)
 
 ### Polynomial Regression Priors
 
 Priors for polynomial regression were more complex and involved trial and error:
-- \(lpha \sim N(\mu=47, \sigma=10)\)
-- \(eta_{G1} \sim N(\mu=0, \sigma=0.01)\)
-- \(eta_{G2} \sim N(\mu=0, \sigma=0.001)\)
-- \(eta_{HDI1} \sim N(\mu=0, \sigma=1)\)
-- \(eta_{HDI2} \sim N(\mu=0, \sigma=0.1)\)
-- \(eta_{U1} \sim N(\mu=0, \sigma=0.01)\)
-- \(eta_{U2} \sim N(\mu=0, \sigma=0.001)\)
-- \(\sigma \sim N(\mu=1, \sigma=0.5)\)
-
+- alpha ~ N(mu=47, sigma=10)
+- beta_{G1} ~ N(mu=0, sigma=0.01)
+- beta_{G2} ~ N(mu=0, sigma=0.001)
+- beta_{HDI1} ~ N(mu=0, sigma=1)
+- beta_{HDI2} ~ N(mu=0, sigma=0.1)
+- beta_{U1} ~ N(mu=0, sigma=0.01)
+- beta_{U2} ~ N(mu=0, sigma=0.001)
+- sigma ~ N(mu=1, sigma=0.5)
 ## Posteriors
 
 ### Linear Regression Posteriors
