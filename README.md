@@ -96,13 +96,13 @@ Both models utilized the same data:
 
 ### Linear Regression Model
 
-The linear regression model predicts election results as a linear combination of the predictors:
-\[ mu = alpha + beta_G * G + beta_HDI * HDI + beta_U * U \]
+The linear regression model predicts election results as a linear combination of the predictors:  
+mu = alpha + beta_G * G + beta_HDI * HDI + beta_U * U  
 
 ### Polynomial Regression Model
 
-The polynomial regression model includes squared terms of the predictors:
-\[ mu = alpha + beta_{G1} * G + beta_{G2} * G^2 + beta_{HDI1} * HDI + beta_{HDI2} * HDI^2 + beta_{U1} * U + beta_{U2} * U^2 \]
+The polynomial regression model includes squared terms of the predictors:  
+mu = alpha + beta_{G1} * G + beta_{G2} * G^2 + beta_{HDI1} * HDI + beta_{HDI2} * HDI^2 + beta_{U1} * U + beta_{U2} * U^2
 
 ## Priors
 
